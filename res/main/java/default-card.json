@@ -1,0 +1,66 @@
+{
+	"challenges": {
+		"cards": {
+			"ace": {
+				"id": 0,
+				"challenge": ""
+			},
+			"2": {
+				"id": 1,
+				"challenge": ""
+			},
+			"3": {
+				"id": 2,
+				"challenge": ""
+			},
+			"4": {
+				"id": 3,
+				"challenge": ""
+			},
+			"5": {
+				"id": 4,
+				"challenge": ""
+			},
+			"6": {
+				"id": 5,
+				"challenge": ""
+			},
+			"7": {
+				"id": 6,
+				"challenge": ""
+			},
+			"8": {
+				"id": 7,
+				"challenge": ""
+			},
+			"9": {
+				"id": 8,
+				"challenge": ""
+			},
+			"10": {
+				"id": 9,
+				"challenge": ""
+			},
+			"Jack": {
+				"id": 10,
+				"challenge": ""
+			},
+			"Queen": {
+				"id": 11,
+				"challenge": ""
+			},
+			"King": {
+				"id": 12,
+				"challenge": ""
+			},
+			"Joker": {
+				"id": 13,
+				"challenge": ""
+			}
+		},
+		"colour": {
+			"red": "",
+			"black": ""
+		}
+	}
+}
