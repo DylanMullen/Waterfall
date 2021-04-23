@@ -3,6 +3,7 @@ package me.dylanmullen.waterfall.systems.decks;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 import org.json.simple.JSONObject;
 
@@ -13,8 +14,10 @@ import me.dylanmullen.waterfall.systems.decks.cards.CardFace;
 public class CardChallenges
 {
 
-	private Map<Integer, String> faceChallenges;
+	private String name;
+	private UUID uuid;
 
+	private Map<Integer, String> faceChallenges;
 	private String redChallenge;
 	private String blackChallenge;
 
@@ -29,8 +32,21 @@ public class CardChallenges
 		init(config);
 	}
 
-	@SuppressWarnings("unchecked")
 	private void init(Config config)
+	{
+		setSettings(config);
+		setupChallenges(config);
+	}
+
+	private void setSettings(Config config)
+	{
+		JSONObject settings = config.getJSONObject("settings");
+		this.name = (String) settings.get("name");
+		this.uuid = UUID.fromString((String) settings.get("uuid"));
+	}
+
+	@SuppressWarnings("unchecked")
+	private void setupChallenges(Config config)
 	{
 		JSONObject challenges = config.getJSONObject("challenges");
 		for (JSONObject card : (Set<JSONObject>) ((JSONObject) challenges.get("cards")).keySet())
@@ -61,6 +77,16 @@ public class CardChallenges
 	public String getChallenge(CardFace face)
 	{
 		return faceChallenges.get(face.getFaceCode());
+	}
+	
+	public String getName()
+	{
+		return name;
+	}
+	
+	public UUID getUUID()
+	{
+		return uuid;
 	}
 
 }

@@ -1,4 +1,7 @@
 {
+	"settings":{
+		"include-jokers": true
+	},
 	"challenges": {
 		"cards": {
 			"ace": {
