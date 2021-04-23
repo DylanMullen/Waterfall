@@ -41,12 +41,12 @@ public class Deck
 			}
 			cardId++;
 		}
-		
-		if(type == DeckType.FULL_SET_JOKERS)
+
+		if (settings.hasIncludedJokers())
 		{
-			
+			cards.add(new Card(CardSuit.DIAMOND, 13));
+			cards.add(new Card(CardSuit.CLUB, 13));
 		}
-			
 	}
 
 	public DeckSettings getSettings()

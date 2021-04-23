@@ -1,5 +1,6 @@
 {
 	"settings":{
+		"deck-type": 0,
 		"include-jokers": true
 	},
 	"challenges": {

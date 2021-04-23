@@ -1,4 +1,4 @@
-package me.dylanmullen.waterfall.systems.decks;
+package me.dylanmullen.waterfall.systems.decks.cards.challenges;
 
 import java.util.HashMap;
 import java.util.Map;

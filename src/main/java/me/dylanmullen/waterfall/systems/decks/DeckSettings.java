@@ -1,6 +1,7 @@
 package me.dylanmullen.waterfall.systems.decks;
 
 import me.dylanmullen.waterfall.configs.Config;
+import me.dylanmullen.waterfall.systems.decks.cards.challenges.CardChallenges;
 
 public class DeckSettings
 {
@@ -10,10 +11,16 @@ public class DeckSettings
 
 	private boolean includeJokers;
 
-	public DeckSettings(DeckType type, Config config)
+	public DeckSettings(Config config)
 	{
-		this.deckType = type;
 		this.challenges = new CardChallenges(config);
+		init(config);
+	}
+
+	private void init(Config config)
+	{
+		this.deckType = DeckType.getType((int) config.getValue("settings", "deck-type"));
+		this.includeJokers = (boolean) config.getValue("settings", "include-jokers");
 	}
 
 	public DeckType getDeckType()
@@ -24,6 +31,11 @@ public class DeckSettings
 	public CardChallenges getChallenges()
 	{
 		return challenges;
+	}
+
+	public boolean hasIncludedJokers()
+	{
+		return includeJokers;
 	}
 
 }
