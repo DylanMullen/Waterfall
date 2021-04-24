@@ -28,7 +28,7 @@ public class ChallengesController
 	
 	public void loadDefault()
 	{
-		createChallenge(new CardChallenges());
+		createChallenge(new CardChallenges(ConfigController.getInstance().getConfig("default-card")));
 	}
 	
 	public void loadChallenge(UUID uuid)

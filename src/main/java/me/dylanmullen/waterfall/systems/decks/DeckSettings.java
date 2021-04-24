@@ -1,6 +1,7 @@
 package me.dylanmullen.waterfall.systems.decks;
 
 import me.dylanmullen.waterfall.configs.Config;
+import me.dylanmullen.waterfall.configs.ConfigController;
 import me.dylanmullen.waterfall.systems.decks.cards.challenges.CardChallenges;
 
 public class DeckSettings
@@ -10,6 +11,11 @@ public class DeckSettings
 	private CardChallenges challenges;
 
 	private boolean includeJokers;
+
+	public DeckSettings()
+	{
+		this(ConfigController.getInstance().getConfig("default-card"));
+	}
 
 	public DeckSettings(Config config)
 	{

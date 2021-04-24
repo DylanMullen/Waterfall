@@ -2,6 +2,7 @@ package me.dylanmullen.waterfall.systems.decks;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import me.dylanmullen.waterfall.systems.decks.cards.Card;
 import me.dylanmullen.waterfall.systems.decks.cards.CardSuit;
@@ -12,11 +13,13 @@ public class Deck
 	private DeckSettings settings;
 
 	private List<Card> cards;
+	private Random random;
 
 	public Deck(DeckSettings settings)
 	{
 		this.settings = settings;
 		this.cards = new ArrayList<Card>();
+		this.random = new Random();
 		init();
 	}
 
@@ -47,6 +50,17 @@ public class Deck
 			cards.add(new Card(CardSuit.DIAMOND, 13));
 			cards.add(new Card(CardSuit.CLUB, 13));
 		}
+	}
+
+	public Card pickCard()
+	{
+		if (cards.size() == 0)
+			return null;
+		
+		int cardID = random.nextInt(cards.size());
+		Card card = cards.get(cardID);
+		cards.remove(cardID);
+		return card;
 	}
 
 	public DeckSettings getSettings()

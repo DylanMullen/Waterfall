@@ -8,7 +8,6 @@ import java.util.UUID;
 import org.json.simple.JSONObject;
 
 import me.dylanmullen.waterfall.configs.Config;
-import me.dylanmullen.waterfall.configs.ConfigController;
 import me.dylanmullen.waterfall.systems.decks.cards.CardFace;
 
 public class CardChallenges
@@ -20,11 +19,6 @@ public class CardChallenges
 	private Map<Integer, String> faceChallenges;
 	private String redChallenge;
 	private String blackChallenge;
-
-	public CardChallenges()
-	{
-		this(ConfigController.getInstance().getConfig("default-card"));
-	}
 
 	public CardChallenges(Config config)
 	{
