@@ -16,8 +16,6 @@ public class ConfigController
 	private File configFolder;
 	private List<Config> configs;
 
-	private Config messageConfig;
-
 	public ConfigController()
 	{
 		if (instance == null)
@@ -26,7 +24,9 @@ public class ConfigController
 		try
 		{
 			this.configs = new ArrayList<Config>();
-			this.configFolder = new File(getJARPath() + "/" + "");
+			this.configFolder = new File(
+					ConfigController.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()
+							+ File.separator + "configs");
 			init();
 		} catch (Exception e)
 		{
@@ -53,7 +53,6 @@ public class ConfigController
 			getConfigFolder().mkdirs();
 
 		loadConfigs();
-		this.messageConfig = getConfig("messages");
 	}
 
 	private void loadConfigs()
@@ -79,11 +78,6 @@ public class ConfigController
 		return configFolder;
 	}
 
-	public Config getMessageConfig()
-	{
-		return messageConfig;
-	}
-	
 	private String getJARPath() throws UnsupportedEncodingException
 	{
 		String temp = URLDecoder.decode(Runner.class.getProtectionDomain().getCodeSource().getLocation().getFile(),
